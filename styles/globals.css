@@ -1,26 +1,233 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========== COSMIC CYBER SECURITY THEME ========== */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --glow-green: #0aff0a;
+  --deep-black: #050505;
+  --matrix-dark: #0a0f0a;
+  --red-alert: #ff0033;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(circle at 20% 50%, #0a0f0a, #020402);
+  color: #b0ffb0;
+  font-family: 'Courier New', 'Fira Code', 'JetBrains Mono', monospace;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ========== ANIMATED SCANNING LINE ========== */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 255, 0, 0.03) 0px,
+    rgba(0, 255, 0, 0.03) 2px,
+    transparent 2px,
+    transparent 8px
+  );
+  pointer-events: none;
+  z-index: 999;
+  animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+/* ========== GLITCH EFFECT FOR TITLES ========== */
+.glitch {
+  position: relative;
+  animation: glitch-skew 3s infinite;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: #ff00cc;
+  z-index: -1;
+  animation: glitch-offset 0.3s infinite linear alternate;
+}
+
+.glitch::after {
+  color: #00ffcc;
+  z-index: -2;
+  animation: glitch-offset2 0.3s infinite linear alternate;
+}
+
+@keyframes glitch-skew {
+  0%, 100% { transform: skew(0deg); }
+  95%, 96% { transform: skew(5deg); }
+  97%, 98% { transform: skew(-3deg); }
+}
+
+@keyframes glitch-offset {
+  0% { left: -2px; top: 1px; opacity: 0.8; }
+  100% { left: 2px; top: -1px; opacity: 0.5; }
+}
+
+@keyframes glitch-offset2 {
+  0% { left: 2px; top: -1px; opacity: 0.6; }
+  100% { left: -2px; top: 1px; opacity: 0.3; }
+}
+
+/* ========== NEON TEXT ========== */
+.neon {
+  color: #0aff0a;
+  text-shadow: 
+    0 0 2px #0aff0a,
+    0 0 5px #0aff0a,
+    0 0 10px #0aff0a,
+    0 0 20px #0aff0a;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { text-shadow: 0 0 2px #0aff0a, 0 0 5px #0aff0a; }
+  50% { text-shadow: 0 0 5px #0aff0a, 0 0 15px #0aff0a, 0 0 25px #0aff0a; }
+}
+
+/* ========== MATRIX RAIN EFFECT (Fixed position, low opacity) ========== */
+.matrix-rain {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  font-family: monospace;
+  font-size: 14px;
+  color: #0aff0a;
+  opacity: 0.15;
+  overflow: hidden;
+}
+
+/* ========== GLASS MORPHISM CARDS ========== */
+.glass-card {
+  background: rgba(5, 10, 5, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(10, 255, 10, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  position: relative;
+  z-index: 2;
+}
+
+.glass-card:hover {
+  border-color: #0aff0a;
+  box-shadow: 0 0 25px rgba(10, 255, 10, 0.3);
+  transform: translateY(-8px);
+}
+
+/* ========== BUTTON STYLES ========== */
+.btn-primary {
+  background: #0aff0a;
+  color: #000;
+  font-weight: bold;
+  padding: 12px 32px;
+  border-radius: 40px;
+  transition: all 0.2s ease;
+  font-family: monospace;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.btn-primary:hover {
+  background: #00dd00;
+  box-shadow: 0 0 20px #0aff0a;
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  border: 2px solid #0aff0a;
+  color: #0aff0a;
+  background: transparent;
+  padding: 12px 32px;
+  border-radius: 40px;
+  transition: all 0.2s ease;
+  font-family: monospace;
+}
+
+.btn-outline:hover {
+  background: #0aff0a;
+  color: #000;
+  box-shadow: 0 0 15px #0aff0a;
+  transform: scale(1.05);
+}
+
+/* ========== TERMINAL CURSOR BLINK ========== */
+.terminal-cursor::after {
+  content: "_";
+  animation: blink 1s infinite;
+  margin-left: 4px;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ========== SCROLLBAR ========== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0f0a;
+}
+::-webkit-scrollbar-thumb {
+  background: #0aff0a;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00cc00;
+}
+
+/* ========== CUSTOM SELECTION ========== */
+::selection {
+  background: #0aff0a;
+  color: #000;
+}
+
+/* ========== HACKER TAGS ========== */
+.hacker-tag {
+  background: rgba(10, 255, 10, 0.1);
+  border-left: 3px solid #0aff0a;
+  padding: 12px;
+  font-family: monospace;
+}
+
+/* ========== STATS GLOW ========== */
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #0aff0a;
+  text-shadow: 0 0 10px #0aff0a;
 }
