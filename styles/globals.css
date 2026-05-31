@@ -2,13 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========== COSMIC CYBER SECURITY THEME ========== */
+/* ========== BILLIONAIRE HACKER THEME ========== */
+/* Glassmorphism + Cyber Security + Enterprise Grade */
 
 :root {
-  --glow-green: #0aff0a;
-  --deep-black: #050505;
-  --matrix-dark: #0a0f0a;
-  --red-alert: #ff0033;
+  --glass-bg: rgba(10, 15, 10, 0.55);
+  --glass-border: rgba(0, 255, 65, 0.25);
+  --glass-glow: rgba(0, 255, 65, 0.1);
+  --neon-green: #00cc44;
+  --dark-bg: #030603;
+  --text-primary: #e0e0e0;
+  --text-secondary: #889988;
 }
 
 * {
@@ -18,216 +22,201 @@
 }
 
 body {
-  background: radial-gradient(circle at 20% 50%, #0a0f0a, #020402);
-  color: #b0ffb0;
-  font-family: 'Courier New', 'Fira Code', 'JetBrains Mono', monospace;
+  background: radial-gradient(circle at 25% 0%, #0a120a, #020402);
+  color: var(--text-primary);
+  font-family: 'Inter', 'SF Mono', 'Courier New', monospace;
   overflow-x: hidden;
-  position: relative;
+  scroll-behavior: smooth;
 }
 
-/* ========== ANIMATED SCANNING LINE ========== */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-linear-gradient(
-    0deg,
-    rgba(0, 255, 0, 0.03) 0px,
-    rgba(0, 255, 0, 0.03) 2px,
-    transparent 2px,
-    transparent 8px
-  );
-  pointer-events: none;
-  z-index: 999;
-  animation: scan 8s linear infinite;
+/* ========== GLASSMORPHISM BASE ========== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-@keyframes scan {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
-
-/* ========== GLITCH EFFECT FOR TITLES ========== */
-.glitch {
-  position: relative;
-  animation: glitch-skew 3s infinite;
-}
-
-.glitch::before,
-.glitch::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.glitch::before {
-  color: #ff00cc;
-  z-index: -1;
-  animation: glitch-offset 0.3s infinite linear alternate;
-}
-
-.glitch::after {
-  color: #00ffcc;
-  z-index: -2;
-  animation: glitch-offset2 0.3s infinite linear alternate;
-}
-
-@keyframes glitch-skew {
-  0%, 100% { transform: skew(0deg); }
-  95%, 96% { transform: skew(5deg); }
-  97%, 98% { transform: skew(-3deg); }
-}
-
-@keyframes glitch-offset {
-  0% { left: -2px; top: 1px; opacity: 0.8; }
-  100% { left: 2px; top: -1px; opacity: 0.5; }
-}
-
-@keyframes glitch-offset2 {
-  0% { left: 2px; top: -1px; opacity: 0.6; }
-  100% { left: -2px; top: 1px; opacity: 0.3; }
-}
-
-/* ========== NEON TEXT ========== */
-.neon {
-  color: #0aff0a;
-  text-shadow: 
-    0 0 2px #0aff0a,
-    0 0 5px #0aff0a,
-    0 0 10px #0aff0a,
-    0 0 20px #0aff0a;
-  animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { text-shadow: 0 0 2px #0aff0a, 0 0 5px #0aff0a; }
-  50% { text-shadow: 0 0 5px #0aff0a, 0 0 15px #0aff0a, 0 0 25px #0aff0a; }
-}
-
-/* ========== MATRIX RAIN EFFECT (Fixed position, low opacity) ========== */
-.matrix-rain {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0;
-  font-family: monospace;
-  font-size: 14px;
-  color: #0aff0a;
-  opacity: 0.15;
-  overflow: hidden;
-}
-
-/* ========== GLASS MORPHISM CARDS ========== */
 .glass-card {
-  background: rgba(5, 10, 5, 0.5);
+  background: rgba(8, 12, 8, 0.6);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(10, 255, 10, 0.2);
-  border-radius: 16px;
-  transition: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-  position: relative;
-  z-index: 2;
+  border: 1px solid rgba(0, 204, 68, 0.2);
+  border-radius: 20px;
+  transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
 .glass-card:hover {
-  border-color: #0aff0a;
-  box-shadow: 0 0 25px rgba(10, 255, 10, 0.3);
-  transform: translateY(-8px);
+  border-color: var(--neon-green);
+  box-shadow: 0 0 28px rgba(0, 204, 68, 0.15);
+  transform: translateY(-6px);
+  background: rgba(12, 18, 12, 0.7);
 }
 
-/* ========== BUTTON STYLES ========== */
+/* ========== NEON TEXT (SUBTLE) ========== */
+.neon-subtle {
+  color: var(--neon-green);
+  text-shadow: 0 0 3px rgba(0, 204, 68, 0.4);
+}
+
+.neon-strong {
+  color: var(--neon-green);
+  text-shadow: 0 0 5px rgba(0, 204, 68, 0.5), 0 0 10px rgba(0, 204, 68, 0.2);
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1, h2, h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+code, .mono {
+  font-family: 'SF Mono', 'Courier New', monospace;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #ffffff 0%, var(--neon-green) 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+/* ========== BUTTONS ========== */
 .btn-primary {
-  background: #0aff0a;
+  background: linear-gradient(135deg, #00cc44, #009933);
   color: #000;
-  font-weight: bold;
+  font-weight: 600;
   padding: 12px 32px;
   border-radius: 40px;
-  transition: all 0.2s ease;
-  font-family: monospace;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: -0.01em;
+  border: none;
+  cursor: pointer;
 }
 
 .btn-primary:hover {
-  background: #00dd00;
-  box-shadow: 0 0 20px #0aff0a;
-  transform: scale(1.05);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(0, 204, 68, 0.4);
+  background: linear-gradient(135deg, #00dd55, #00aa33);
 }
 
 .btn-outline {
-  border: 2px solid #0aff0a;
-  color: #0aff0a;
+  border: 1.5px solid var(--neon-green);
+  color: var(--neon-green);
   background: transparent;
   padding: 12px 32px;
   border-radius: 40px;
-  transition: all 0.2s ease;
-  font-family: monospace;
+  transition: all 0.25s ease;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .btn-outline:hover {
-  background: #0aff0a;
-  color: #000;
-  box-shadow: 0 0 15px #0aff0a;
-  transform: scale(1.05);
+  background: rgba(0, 204, 68, 0.1);
+  transform: scale(1.02);
+  box-shadow: 0 0 12px rgba(0, 204, 68, 0.2);
 }
 
-/* ========== TERMINAL CURSOR BLINK ========== */
-.terminal-cursor::after {
-  content: "_";
-  animation: blink 1s infinite;
-  margin-left: 4px;
+/* ========== SCAN LINE (SUBTLE) ========== */
+.scan-line {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 204, 68, 0.02) 50%,
+    transparent 100%
+  );
+  animation: slowScan 12s linear infinite;
+  z-index: 999;
 }
 
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
+@keyframes slowScan {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
 }
 
 /* ========== SCROLLBAR ========== */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #0a0f0a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #0aff0a;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00cc00;
+  background: var(--neon-green);
+  border-radius: 3px;
 }
 
-/* ========== CUSTOM SELECTION ========== */
+/* ========== STATS NUMBER ========== */
+.stat-number {
+  font-size: 2.8rem;
+  font-weight: 600;
+  color: var(--neon-green);
+  letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ========== HACKER BADGE ========== */
+.hacker-badge {
+  display: inline-block;
+  background: rgba(0, 204, 68, 0.08);
+  border-left: 3px solid var(--neon-green);
+  padding: 8px 16px;
+  font-size: 0.8rem;
+  font-family: monospace;
+  border-radius: 0 12px 12px 0;
+}
+
+/* ========== FORM INPUTS ========== */
+input, textarea {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(0, 204, 68, 0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text-primary);
+  font-family: 'Inter', monospace;
+  transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: var(--neon-green);
+  box-shadow: 0 0 8px rgba(0, 204, 68, 0.2);
+}
+
+/* ========== SELECTION ========== */
 ::selection {
-  background: #0aff0a;
+  background: var(--neon-green);
   color: #000;
 }
 
-/* ========== HACKER TAGS ========== */
-.hacker-tag {
-  background: rgba(10, 255, 10, 0.1);
-  border-left: 3px solid #0aff0a;
-  padding: 12px;
-  font-family: monospace;
+/* ========== TABLE STYLES ========== */
+.hacker-table {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-/* ========== STATS GLOW ========== */
-.stat-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #0aff0a;
-  text-shadow: 0 0 10px #0aff0a;
+.hacker-table th {
+  text-align: left;
+  padding: 16px;
+  color: var(--neon-green);
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 204, 68, 0.3);
+}
+
+.hacker-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }

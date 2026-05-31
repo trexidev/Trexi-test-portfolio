@@ -1,27 +1,26 @@
 export default function Certifications() {
   const certs = [
-    { id: 1, name: "OSCP", issuer: "Offensive Security", year: "2024", icon: "🔴" },
-    { id: 2, name: "CEH", issuer: "EC-Council", year: "2023", icon: "🟢" },
-    { id: 3, name: "CISSP", issuer: "ISC2", year: "2024", icon: "🔵" },
-    { id: 4, name: "PNPT", issuer: "TCM Security", year: "2024", icon: "🟣" },
+    { id: 1, name: "OSCP", issuer: "Offensive Security", description: "Offensive Security Certified Professional" },
+    { id: 2, name: "OSCE3", issuer: "Offensive Security", description: "Offensive Security Certified Expert 3" },
+    { id: 3, name: "CISSP", issuer: "ISC²", description: "Certified Information Systems Security Professional" },
+    { id: 4, name: "GPEN", issuer: "SANS", description: "GIAC Penetration Tester" },
   ]
 
   return (
-    <section id="certifications" className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-green-500 mb-4">
-            # certifications
-          </h2>
-          <p className="text-gray-400">Validated expertise, recognized globally</p>
+    <section className="py-24 bg-black/40 relative z-10">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <span className="hacker-badge mb-4">// credentials</span>
+          <h2 className="section-title">Certifications & Training</h2>
+          <p className="text-gray-400 max-w-2xl mx-auto mt-4">Industry-recognized validation of expertise.</p>
         </div>
-        <div className="flex flex-wrap justify-center gap-6">
+
+        <div className="flex flex-wrap justify-center gap-5">
           {certs.map((cert) => (
-            <div key={cert.id} className="bg-gray-900 p-6 rounded-lg border border-gray-800 min-w-[200px] text-center hover:border-green-500/50 transition-all">
-              <div className="text-3xl mb-2">{cert.icon}</div>
-              <h3 className="text-xl font-bold text-white">{cert.name}</h3>
+            <div key={cert.id} className="glass-card p-6 min-w-[220px] text-center">
+              <h3 className="text-2xl font-semibold text-white mb-1">{cert.name}</h3>
               <p className="text-green-500 text-sm">{cert.issuer}</p>
-              <p className="text-gray-500 text-xs mt-1">{cert.year}</p>
+              <p className="text-gray-500 text-xs mt-2">{cert.description}</p>
             </div>
           ))}
         </div>

@@ -1,37 +1,49 @@
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center pt-16 relative z-10">
-      <div className="text-center px-4">
-        <div className="mb-6">
-          <span className="text-green-500 font-mono text-sm border border-green-500/50 px-4 py-2 rounded-full hacker-tag inline-block">
-            🔒 ROOT ACCESS GRANTED 🔒
-          </span>
+    <section className="min-h-screen flex items-center justify-center pt-20 relative z-10">
+      <div className="text-center px-6 max-w-5xl mx-auto">
+        <div className="mb-8">
+          <span className="hacker-badge text-sm">// root@billionaire:~$</span>
         </div>
         
-        <h1 className="text-6xl md:text-8xl font-bold mb-6">
-          <span className="neon">$ whoami</span>
+        <h1 className="text-6xl md:text-8xl font-medium tracking-tight mb-6">
+          <span className="bg-gradient-to-r from-white to-green-400 bg-clip-text text-transparent">
+            Alex Trexi
+          </span>
         </h1>
         
         <div className="text-xl md:text-2xl text-gray-300 space-y-2 mb-8">
-          <p>Ethical Hacker <span className="text-green-500">|</span> Security Researcher <span className="text-green-500">|</span> Bug Bounty Hunter</p>
-          <p className="text-green-500 text-lg">{"< red team operator />"}</p>
+          <p>Red Team Operator <span className="text-green-500">|</span> Security Researcher</p>
+          <p className="text-green-500 text-lg font-mono">{"< offensive security specialist />"}</p>
         </div>
 
-        <p className="text-gray-400 max-w-2xl mx-auto mb-12 font-mono">
-          Finding vulnerabilities before the bad guys. 50+ CVEs disclosed | $25k+ in bounties
+        <p className="text-gray-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+          Discovering critical vulnerabilities before exploitation. 
+          Trusted by Fortune 500 enterprises and government agencies.
         </p>
 
-        <div className="flex gap-4 justify-center flex-wrap">
-          <a href="#contact" className="btn-primary inline-block">
-            🔓 Hire Me
+        <div className="flex gap-5 justify-center flex-wrap">
+          <a href="#contact" className="btn-primary">
+            Initiate Engagement
           </a>
-          <a href="#hall-of-fame" className="btn-outline inline-block">
-            📜 View Hall of Fame
+          <a href="#hall-of-fame" className="btn-outline">
+            View Credentials
           </a>
         </div>
 
-        <div className="mt-16 text-green-500/50 text-xs font-mono">
-          <span className="terminal-cursor">system ready</span>
+        <div className="mt-20 flex justify-center gap-12 flex-wrap">
+          <div>
+            <div className="stat-number">50+</div>
+            <div className="text-gray-500 text-sm">CVEs Discovered</div>
+          </div>
+          <div>
+            <div className="stat-number">$85k+</div>
+            <div className="text-gray-500 text-sm">Bounties Earned</div>
+          </div>
+          <div>
+            <div className="stat-number">100%</div>
+            <div className="text-gray-500 text-sm">Success Rate</div>
+          </div>
         </div>
       </div>
     </section>

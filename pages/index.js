@@ -5,12 +5,11 @@ import Certifications from '../components/Certifications'
 import HallOfFame from '../components/HallOfFame'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import MatrixRain from '../components/MatrixRain'  // ← ADD THIS LINE
 
 export default function Home() {
   return (
     <>
-      <MatrixRain />  {/* ← ADD THIS LINE */}
+      <div className="scan-line"></div>
       <Navbar />
       <Hero />
       <Services />
