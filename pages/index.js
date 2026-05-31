@@ -5,12 +5,12 @@ import Certifications from '../components/Certifications'
 import HallOfFame from '../components/HallOfFame'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import FallingGlass from '../components/FallingGlass'
+import CodeRain from '../components/CodeRain'
 
 export default function Home() {
   return (
-    <div className="liquid-reflection">
-      <FallingGlass />
+    <>
+      <CodeRain />
       <div className="relative z-10">
         <Navbar />
         <Hero />
@@ -20,6 +20,6 @@ export default function Home() {
         <Contact />
         <Footer />
       </div>
-    </div>
+    </>
   )
 }
