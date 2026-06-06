@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "slug": "how-i-found-15000-rce-in-google",
+    "title": "How I Found a $15,000 RCE in Google",
+    "date": "2024-03-15",
+    "excerpt": "A deep dive into discovering a critical remote code execution vulnerability in Google's infrastructure.",
+    "readTime": "8 min read",
+    "tags": ["Bug Bounty", "RCE", "Google"]
+  },
+  {
+    "id": 2,
+    "slug": "sql-injection-modern-bypass-techniques",
+    "title": "SQL Injection: Modern Bypass Techniques",
+    "date": "2024-02-10",
+    "excerpt": "How to bypass WAFs and filters in 2024 using advanced SQL injection techniques.",
+    "readTime": "12 min read",
+    "tags": ["SQLi", "Web Security", "WAF Bypass"]
+  },
+  {
+    "id": 3,
+    "slug": "linux-privilege-escalation-for-red-teamers",
+    "title": "Linux Privilege Escalation for Red Teamers",
+    "date": "2024-01-20",
+    "excerpt": "A comprehensive guide to finding and exploiting Linux misconfigurations.",
+    "readTime": "15 min read",
+    "tags": ["Linux", "Privilege Escalation", "Red Team"]
+  }
+]

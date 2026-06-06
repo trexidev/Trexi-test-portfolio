@@ -6,6 +6,7 @@ import HallOfFame from '../components/HallOfFame'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import CodeRain from '../components/CodeRain'
+import Terminal from '../components/Terminal'  // ADD THIS
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Services />
         <Certifications />
         <HallOfFame />
+        <Terminal />  {/* ADD THIS */}
         <Contact />
         <Footer />
       </div>
