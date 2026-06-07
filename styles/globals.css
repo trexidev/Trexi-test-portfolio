@@ -165,4 +165,125 @@ input:focus, textarea:focus {
 .hacker-table td {
   padding: 10px 12px;
   border-bottom: 1px solid rgba(10, 255, 10, 0.2);
+}/* ========== MOBILE RESPONSIVE FIXES ========== */
+
+/* Mobile text adjustments */
+@media (max-width: 768px) {
+  /* Hero section */
+  h1 {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-6xl {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-7xl {
+    font-size: 3rem !important;
+  }
+  
+  .text-xl {
+    font-size: 1rem !important;
+  }
+  
+  /* Stats numbers */
+  .stat-number {
+    font-size: 1.8rem !important;
+  }
+  
+  /* Section titles */
+  .section-title {
+    font-size: 1.8rem !important;
+  }
+  
+  /* Cards grid */
+  .grid {
+    gap: 1rem !important;
+  }
+  
+  /* Card padding */
+  .glass-card, .glass-700m, .terminal-panel {
+    padding: 1rem !important;
+  }
+  
+  /* Buttons */
+  .btn-terminal-primary, .btn-terminal, button {
+    padding: 8px 20px !important;
+    font-size: 0.9rem !important;
+  }
+  
+  /* Stats container */
+  .flex.gap-12 {
+    gap: 2rem !important;
+  }
+  
+  /* Hero buttons container */
+  .flex.gap-5 {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem !important;
+  }
+  
+  /* Hall of Fame cards on mobile */
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Certifications flex wrap */
+  .flex-wrap {
+    gap: 1rem !important;
+  }
+  
+  /* Terminal component */
+  .h-96 {
+    height: 400px !important;
+  }
+  
+  .font-mono.text-sm {
+    font-size: 0.7rem !important;
+  }
+  
+  /* Padding for sections */
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+  
+  /* Container padding */
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  
+  /* Blog grid */
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Small phones (below 480px) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.8rem !important;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem !important;
+  }
+  
+  .badge-glass, .hacker-badge {
+    font-size: 0.6rem !important;
+    padding: 4px 10px !important;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid.md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  
+  h1 {
+    font-size: 3rem !important;
+  }
 }
