@@ -7,7 +7,7 @@ export default function Hero() {
         </div>
         
         <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4 sm:mb-6">
-          <span className="text-green-500 break-words">Alex Trexi</span>
+          <span className="text-green-500 break-words">Tanimowo Treasure</span>
         </h1>
         
         <div className="text-base sm:text-xl md:text-2xl space-y-1 sm:space-y-2 mb-6 sm:mb-8">

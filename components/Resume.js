@@ -1,18 +1,12 @@
-import { useState } from 'react'
-
 export default function Resume() {
-  const [downloading, setDownloading] = useState(false)
-
-  // Create a simple HTML resume that can be downloaded as PDF
   const handleDownload = () => {
-    setDownloading(true)
-    
-    // Create a temporary link to download the resume
-    // For now, we'll use a message. You can replace with actual PDF later
-    setTimeout(() => {
-      setDownloading(false)
-      alert('📄 Resume download started!\n\nTo add your actual PDF:\n1. Save your resume as PDF\n2. Name it "resume.pdf"\n3. Place it in the "public" folder\n4. This button will auto-detect it')
-    }, 1000)
+    // Create a link to download the PDF
+    const link = document.createElement('a')
+    link.href = '/resume.pdf'  // Points to public/resume.pdf
+    link.download = 'Alex_Trexi_Resume.pdf'
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
   }
 
   return (
@@ -94,18 +88,17 @@ export default function Resume() {
           {/* Download Button */}
           <button 
             onClick={handleDownload}
-            disabled={downloading}
             className="btn-terminal-primary w-full text-center py-3 text-sm sm:text-base"
           >
-            {downloading ? 'Preparing Download...' : '$ wget resume.pdf --save'}
+            $ wget resume.pdf --save
           </button>
           
           <p className="text-gray-500 text-xs mt-4 font-mono text-center">
             PGP Signed | SHA256: 4a3f9e2c8b1d7f5a...
           </p>
           
-          <p className="text-gray-600 text-xs mt-4 text-center">
-            ⚡ To add your actual PDF: Save resume as "resume.pdf" in the "public" folder
+          <p className="text-green-500/70 text-xs mt-4 text-center">
+            ✅ Your actual resume PDF will download when you click the button
           </p>
         </div>
       </div>
