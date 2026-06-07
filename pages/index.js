@@ -3,10 +3,10 @@ import Hero from '../components/Hero'
 import Services from '../components/Services'
 import Certifications from '../components/Certifications'
 import HallOfFame from '../components/HallOfFame'
+import Resume from '../components/Resume'      // ADD THIS
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
 import CodeRain from '../components/CodeRain'
-import Terminal from '../components/Terminal'  // ADD THIS
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         <Services />
         <Certifications />
         <HallOfFame />
-        <Terminal />  {/* ADD THIS */}
+        <Resume />                               
         <Contact />
         <Footer />
       </div>

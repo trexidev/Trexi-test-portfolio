@@ -4,19 +4,21 @@ import { useState } from 'react'
 
 export default function Navbar() {
   const router = useRouter()
-  const isHomePage = router.pathname === '/'
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const handleNavClick = (e, sectionId) => {
+  const handleNavigation = (sectionId) => {
     setIsMenuOpen(false)
-    if (!isHomePage) {
-      e.preventDefault()
+    
+    if (router.pathname === '/') {
+      // Already on homepage, just scroll
+      const section = document.getElementById(sectionId)
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // On blog or other page, navigate to homepage then scroll
       router.push(`/#${sectionId}`)
     }
-  }
-
-  const handleLinkClick = () => {
-    setIsMenuOpen(false)
   }
 
   return (
@@ -24,27 +26,30 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="text-green-500 font-bold text-xl tracking-tight" onClick={handleLinkClick}>
+          <Link href="/" className="text-green-500 font-bold text-xl tracking-tight">
             $ whoami
           </Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 lg:space-x-8">
-            <a onClick={(e) => handleNavClick(e, 'services')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
+            <button onClick={() => handleNavigation('services')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
               Services
-            </a>
-            <a onClick={(e) => handleNavClick(e, 'certifications')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
+            </button>
+            <button onClick={() => handleNavigation('certifications')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
               Certifications
-            </a>
-            <a onClick={(e) => handleNavClick(e, 'hall-of-fame')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
+            </button>
+            <button onClick={() => handleNavigation('hall-of-fame')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
               Hall of Fame
-            </a>
-            <Link href="/blog" className="text-gray-300 hover:text-green-500 transition font-mono text-sm" onClick={handleLinkClick}>
+            </button>
+            <Link href="/blog" className="text-gray-300 hover:text-green-500 transition font-mono text-sm">
               Blog
             </Link>
-            <a onClick={(e) => handleNavClick(e, 'contact')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
+            <button onClick={() => handleNavigation('resume')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
+              Resume
+            </button>
+            <button onClick={() => handleNavigation('contact')} className="text-gray-300 hover:text-green-500 transition font-mono text-sm cursor-pointer">
               Contact
-            </a>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -65,21 +70,24 @@ export default function Navbar() {
         {/* Mobile Menu Dropdown */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-3">
-            <a onClick={(e) => handleNavClick(e, 'services')} className="block text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
+            <button onClick={() => handleNavigation('services')} className="block w-full text-left text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
               Services
-            </a>
-            <a onClick={(e) => handleNavClick(e, 'certifications')} className="block text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
+            </button>
+            <button onClick={() => handleNavigation('certifications')} className="block w-full text-left text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
               Certifications
-            </a>
-            <a onClick={(e) => handleNavClick(e, 'hall-of-fame')} className="block text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
+            </button>
+            <button onClick={() => handleNavigation('hall-of-fame')} className="block w-full text-left text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
               Hall of Fame
-            </a>
-            <Link href="/blog" className="block text-gray-300 hover:text-green-500 transition font-mono text-sm py-2" onClick={handleLinkClick}>
+            </button>
+            <Link href="/blog" className="block text-gray-300 hover:text-green-500 transition font-mono text-sm py-2" onClick={() => setIsMenuOpen(false)}>
               Blog
             </Link>
-            <a onClick={(e) => handleNavClick(e, 'contact')} className="block text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
+            <button onClick={() => handleNavigation('resume')} className="block w-full text-left text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
+              Resume
+            </button>
+            <button onClick={() => handleNavigation('contact')} className="block w-full text-left text-gray-300 hover:text-green-500 transition font-mono text-sm py-2 cursor-pointer">
               Contact
-            </a>
+            </button>
           </div>
         )}
       </div>

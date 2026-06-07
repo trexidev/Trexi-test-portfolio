@@ -287,3 +287,6 @@ input:focus, textarea:focus {
     font-size: 3rem !important;
   }
 }
+html {
+  scroll-behavior: smooth;
+}
